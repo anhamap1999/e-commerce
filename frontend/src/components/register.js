@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { register } from '../actions/userActions';
 function RegisterScreen(props) {
     const [name, setName] = useState('');
@@ -10,11 +10,12 @@ function RegisterScreen(props) {
     const userRegister = useSelector(state =>state.userRegister);
     const {  loading , userInfo , error} = userRegister;
     const dispatch =useDispatch();
-
+    const location = useLocation();
+     const redirect = location.search ? location.search.split("=")[1]:'/';
    
     useEffect(() => {
        if(userInfo){
-           props.history.push("/");
+           props.history.push(redirect);
        }
         return () => {
         };
@@ -48,7 +49,7 @@ function RegisterScreen(props) {
                  <input type="password" name="repassword" placeholder="password" id="repassword" onChange={(e) => setRepassword(e.target.value)} ></input>
              </li>
              <li>
-                <Link to="/signin">Already have an account!</Link>
+             <Link to={ redirect === "/" ? "signin" : "signin?redirect=" + redirect} className="register">Create your account</Link>
              </li>
              <li>
                  <button type="submit" className="re-submit" >Register</button>

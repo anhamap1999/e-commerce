@@ -10,14 +10,15 @@ function MenuTop() {
             <nav className="navbar navbar-expand navbar-light bg-faded">
                 
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                    
                     <li className="nav-item active">
-                        <Link to="/" className="navbar-brand">Home</Link>
+                        <Link to="/" className="navbar-brand logo">AL</Link>
                     </li>
                     <li className="nav-item">
                         <Link to="/products" className="nav-link" >Product</Link>
                     </li>
                    
-                    <li className="user_menutop">
+                    <li className="nav-item user_menutop">
                             {
                                 userInfo ?
                                 

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeToCart } from '../actions/cartActions';
 import {Link} from 'react-router-dom';
+import HomePage from '../pages/homepage';
 function CartScreen(props) {
     const cart = useSelector(state => state.cart);
     const {cartItems} = cart;
@@ -13,14 +14,15 @@ function CartScreen(props) {
       dispatch(removeToCart(productId));
     }
     const redirectShipping = () => {
-      props.history.push('/sigin?redirect=shipping')
+      props.history.push('/signin?redirect=shipping')
     }
     useEffect(() => {
       if(productId){
         dispatch(addToCart(productId,qty));
       }
     }, []);
-  return <div className="cart-details">
+  return <HomePage>
+    <div className="cart-details">
       
       <div className="container">
          <div><h3>Your Cart</h3></div>
@@ -68,6 +70,7 @@ function CartScreen(props) {
         </div>
       </div>
   </div>
+  </HomePage>
 }
 
 

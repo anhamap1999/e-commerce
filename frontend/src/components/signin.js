@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link,useHistory, useLocation} from 'react-router-dom';
 import { signin } from '../actions/userActions';
 
 function SigninScreen(props) {
@@ -8,13 +8,15 @@ function SigninScreen(props) {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
      const userSignin = useSelector(state =>state.userSignin);
-     const {  loading,userInfo , error} = userSignin;
+     const {  loading, userInfo , error} = userSignin;
      const dispatch =useDispatch();
-
+     const history = useHistory();
+     const location = useLocation();
+     const redirect = location.search ? location.search.split("=")[1]:'/';
    
     useEffect(() => {
        if(userInfo){
-           props.history.push("/");
+           history.push(redirect);
        }
         return () => {
         };
@@ -33,7 +35,7 @@ function SigninScreen(props) {
         <input type="text" name="email" id="email" onChange={(e) => setEmail(e.target.value)} placeholder="Username"></input>
         <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
         <input type="submit"  value="Login"></input>
-        <Link to="/register" className="register">Create your account</Link>
+        <Link to={ redirect === "/" ? "register" : "register?redirect=" + redirect} className="register">Create your account</Link>
       </form>
   </div>
 }

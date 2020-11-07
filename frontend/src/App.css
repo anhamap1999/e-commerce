@@ -215,9 +215,18 @@ li{
 /* siginin */
 body{
   margin: 0;
-  padding: 0;
+  padding: 20px;
   font-family: sans-serif;
-  background: #34495e;
+  background: #6b8360;
+  width: 100%;
+  height: 100%;
+}
+.bg-main {
+  width: 100%;
+  height: 100%;
+  box-shadow: 5px 10px 15px black;
+  background-color: #ced8c8e8;
+  padding: 2px;
 }
 .box{
   width: 400px;
@@ -291,4 +300,93 @@ body{
   border-radius: 24px;
   transition: 0.25s;
   cursor: pointer;
+}
+
+
+a.navbar-brand.logo {
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 1px 1px 5px black;
+}
+li.nav-item {
+  line-height: 20px;
+  font-family: cursive;
+}
+.user_menutop {
+  position: absolute;
+  right: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: cursive;
+}
+.create-form {
+  display: flex;
+  justify-content: center;
+  
+}
+form.rounded.border {
+  width: 400px;
+  position: relative;
+  padding: 15px;
+}
+form.rounded.border span {
+  position: absolute;
+  right: 6px;
+  top: 20px;
+  color: blueviolet;
+  font-weight: 700;
+}
+ul{
+  padding: 0px;
+}
+.checkoutsteps {
+  display: flex;
+  padding: 20px;
+}
+.checkoutsteps >div {
+  padding: 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid black;
+}
+.checkoutsteps >div.active {
+  padding: 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid rgb(161, 142, 30);
+}
+.placeorder .general {
+  border: 1px solid black;
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.cart-place img{
+  width: 300px;
+}
+.cart-place .img{
+  width: 300px;
+}
+.placeorder .cart-place{
+  height: auto !important;
+}
+.order{
+  border: 1px solid black;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.order button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: #1518d3;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 40px;
 }

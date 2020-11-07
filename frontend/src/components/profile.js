@@ -1,10 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import HomePage from '../pages/homepage';
 function ProfileScreen() {
 
-  return <div>
-   <Link to="/createproduct">Create Product</Link>
-  </div>
+  return <HomePage>
+      <div>
+    <Link to="/createproduct">Create Product</Link>
+    </div>
+  </HomePage>
   
 }
 

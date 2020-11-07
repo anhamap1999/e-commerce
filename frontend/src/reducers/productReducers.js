@@ -8,6 +8,9 @@ import {
   PRODUCT_ADD_REQUEST,
   PRODUCT_ADD_SUCCESS,
   PRODUCT_ADD_FAIL,
+  PRODUCT_REMOVE_REQUEST,
+  PRODUCT_REMOVE_SUCCESS,
+  PRODUCT_REMOVE_FAIL,
 } from '../constants/productConstants';
 function productListReducer(state = { products: [] }, action) {
     switch (action.type) {
@@ -45,4 +48,16 @@ function productDetailsReducer(state = { product : {} }, action) {
         return state;
     }
   }
-  export { productListReducer,productDetailsReducer,productAddReducer};
+  function productRemoveReducer(state = { product : {} }, action) {
+    switch (action.type) {
+      case PRODUCT_REMOVE_REQUEST:
+        return { loading: true };
+      case PRODUCT_REMOVE_SUCCESS:
+        return { loading : false, success: true , product: action.payload };
+      case PRODUCT_REMOVE_FAIL:
+        return { loading: false, error: action.payload };
+      default:
+        return state;
+    }
+  }
+  export { productListReducer,productDetailsReducer,productAddReducer,productRemoveReducer};

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {detailsProduct} from '../actions/productActions';
 import {Link} from 'react-router-dom'
+import HomePage from '../pages/homepage';
 function DetailsScreen(props) {
   const [qty,setQty] =useState(1);
   const productDetails = useSelector(state => state.productDetails);
   const { product, loading , error} = productDetails;
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(detailsProduct(props.match.params.id));
     return () => {
@@ -15,7 +16,8 @@ function DetailsScreen(props) {
     };
   }, []);
   
-  return loading ? <div> loading...</div> :
+  return <HomePage>{
+    loading ? <div> loading...</div> :
       error ? <div> {error} </div>:  
       <div className="container details">
           <div className="row">
@@ -55,9 +57,10 @@ function DetailsScreen(props) {
               <Link to={'/cart/'+product._id +'?qty='+qty}><button>Add To Cart</button></Link>
             </div>
           </div>
-      </div>
+      </div>}
         
-      }
+  </HomePage>
+}
 
 
 export default DetailsScreen;
